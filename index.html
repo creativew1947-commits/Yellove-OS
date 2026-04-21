@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YelloveOS | Smart Stadium</title>
+    <meta name="description" content="AI-powered system to reduce crowd congestion and optimize navigation and transport decisions at MA Chidambaram Stadium." />
+    <meta name="keywords" content="crowd congestion, transport optimization, smart navigation, CSK, Chepauk, Google Maps, Gemini AI" />
+    
+    <!-- Emergency Boot Interceptor -->
+    <script>
+      window.onerror = function(msg, url, line, col, error) {
+        var status = document.getElementById('boot-status');
+        if (status) {
+          status.innerHTML = '<div style="color:#ef4444; font-weight:900; font-size:12px;">[SYSTEM_CRASH] ' + msg + '<br/>Line: ' + line + '</div>';
+        }
+        console.error("BOOT_CRASH:", msg, error);
+        return false;
+      };
+      
+      // Catch unhandled promise rejections
+      window.onunhandledrejection = function(event) {
+        var status = document.getElementById('boot-status');
+        if (status) {
+          status.innerHTML = '<div style="color:#f97316; font-weight:900; font-size:12px;">[PROMISE_REJECTION] ' + event.reason + '</div>';
+        }
+      };
+      console.log("Tactical Uplink: Initializing Boot Sequence...");
+    </script>
+    
+    <style>
+      #boot-overlay {
+        position: fixed; inset: 0; background: #05080f; 
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        z-index: 9999; font-family: monospace; transition: opacity 0.5s;
+      }
+      #boot-loader {
+        width: 40px; height: 40px; border: 4px solid #f9cd0520; border-top-color: #f9cd05;
+        border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+  </head>
+  <body>
+    <!-- Tactical Boot Overlay -->
+    <div id="boot-overlay">
+      <div id="boot-loader"></div>
+      <div id="boot-status" style="color: #f9cd05; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;">Initializing Matrix...</div>
+    </div>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Auto-hide overlay script -->
+    <script>
+      const checkInterval = setInterval(() => {
+        if (document.querySelector('#root > div') || document.querySelector('#root > section')) {
+          document.getElementById('boot-overlay').style.opacity = '0';
+          setTimeout(() => document.getElementById('boot-overlay').remove(), 500);
+          clearInterval(checkInterval);
+        }
+      }, 500);
+    </script>
+  </body>
+</html>

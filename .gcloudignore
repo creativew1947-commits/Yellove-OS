@@ -1,0 +1,6 @@
+.git
+.gitignore
+node_modules
+dist
+# Ensure .env is NOT ignored so it can be used during Cloud Build
+! .env

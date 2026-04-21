@@ -1,0 +1,16 @@
+{
+  "name": "YelloveOS Smart Stadium",
+  "short_name": "YelloveOS",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#F9CD05",
+  "description": "Smart AI-powered crowd management for stadiums.",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ]
+}
